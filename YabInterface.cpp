@@ -1697,9 +1697,11 @@ void YabInterface::DrawRect(BRect frame, const char* window)
                         if(bview)
                         {
                                 b->Lock();
-				if(drawStroking)
+                                bview->SetDrawingMode(B_OP_ALPHA);
+                              	bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
+								if(drawStroking)
                                		bview->StrokeRect(frame, yabPattern);
-				else
+								else
                                		bview->FillRect(frame, yabPattern);
                                 bview->Sync();
                                 b->Unlock();
@@ -4517,8 +4519,8 @@ void YabInterface::TreeBox3(const char* id, const char* head, const char* item, 
 							BStringItem *tmp = new BStringItem(item, level);
 							//myTree->AddUnder(tmp,stritem);
 							int32 fullSubItemCount = myTree->CountItemsUnder(stritem, false);
-							printf("found item '%s' at %ld with level %ld, number of sub-items: %ld\n",
-								head, i, level - 1, fullSubItemCount);
+							//printf("found item '%s' at %ld with level %ld, number of sub-items: %ld\n",
+							//	head, i, level - 1, fullSubItemCount);
 							myTree->AddItem(tmp, i + fullSubItemCount + 1);
 							
 							if(isExpanded<1)
@@ -8817,7 +8819,8 @@ int YabInterface::Sound(const char* filename)
 {
 	entry_ref ref; 
 	BEntry entry(filename, true); 
-
+	//printf("file '%s' \n", &filename);
+							
 	if (entry.InitCheck() == B_OK) 
 		if (entry.GetRef(&ref) == B_OK) 
 			return play_sound(&ref, true, false, true);
