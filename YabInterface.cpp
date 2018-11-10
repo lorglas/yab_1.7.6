@@ -1622,6 +1622,8 @@ void YabInterface::DrawText(BPoint coordinates, const char* text, const char* wi
                         if(bview)
                         {
                                 b->Lock();
+                                // bview->SetDrawingMode(B_OP_ALPHA);
+                              	//bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                	bview->DrawString(text, coordinates);
                                 bview->Sync();
                                 b->Unlock();
@@ -1640,6 +1642,8 @@ void YabInterface::DrawText(BPoint coordinates, const char* text, const char* wi
                                         BBitmap *b = myView->GetBitmap();
                                         BView *bView = myView->GetBitmapView();
                                         b->Lock();
+                                         bView->SetDrawingMode(B_OP_ALPHA);
+                              	bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                		bView->DrawString(text, coordinates);
                                         bView->Sync();
                                         b->Unlock();
@@ -1720,6 +1724,8 @@ void YabInterface::DrawRect(BRect frame, const char* window)
                                         BBitmap *b = myView->GetBitmap();
                                         BView *bView = myView->GetBitmapView();
                                         b->Lock();
+                                  //      bView->SetDrawingMode(B_OP_ALPHA);
+                              	//bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
 					if(drawStroking)
                                			bView->StrokeRect(frame, yabPattern);
 					else
@@ -1814,6 +1820,8 @@ void YabInterface::DrawDot(double x, double y, const char* window)
                         if(bview)
                         {
                                 b->Lock();
+                                   bview->SetDrawingMode(B_OP_ALPHA);
+                              	bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                 bview->StrokeLine(BPoint(x,y), BPoint(x,y), yabPattern);
                                 bview->Sync();
                                 b->Unlock();
@@ -1832,6 +1840,8 @@ void YabInterface::DrawDot(double x, double y, const char* window)
                                         BBitmap *b = myView->GetBitmap();
                                         BView *bView = myView->GetBitmapView();
                                         b->Lock();
+                                //         bView->SetDrawingMode(B_OP_ALPHA);
+                              //	bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                         bView->StrokeLine(BPoint(x,y), BPoint(x,y), yabPattern);
                                         bView->Sync();
                                         b->Unlock();
@@ -1880,6 +1890,8 @@ void YabInterface::DrawLine(double x1, double y1, double x2, double y2, const ch
 			if(bview)
 			{
 				b->Lock();
+				bview->SetDrawingMode(B_OP_ALPHA);
+                bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
 				bview->StrokeLine(BPoint(x1,y1), BPoint(x2,y2), yabPattern);
 				bview->Sync();
 				b->Unlock();
@@ -1898,6 +1910,8 @@ void YabInterface::DrawLine(double x1, double y1, double x2, double y2, const ch
 					BBitmap *b = myView->GetBitmap();
 					BView *bView = myView->GetBitmapView();
 					b->Lock();
+					//bView->SetDrawingMode(B_OP_ALPHA);
+                    //bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
 					bView->StrokeLine(BPoint(x1,y1), BPoint(x2,y2), yabPattern);
 					bView->Sync();
 					b->Unlock();
@@ -1976,6 +1990,8 @@ void YabInterface::DrawCircle(double x, double y, double r, const char* window)
                                         BView *bView = myView->GetBitmapView();
                                         
                                         b->Lock();
+                                  //      bView->SetDrawingMode(B_OP_ALPHA);
+                              		//	bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                        // bView->SetDrawingMode(B_OP_OVER);
                                         if(drawStroking)
                                         	bView->StrokeEllipse(BPoint(x,y), r, r, yabPattern);
@@ -2029,6 +2045,8 @@ void YabInterface::DrawEllipse(double x, double y, double r1, double r2, const c
                         if(bview)
                         {
                                 b->Lock();
+                                   bview->SetDrawingMode(B_OP_ALPHA);
+                              	bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                 if(drawStroking)
                                         bview->StrokeEllipse(BPoint(x,y), r1, r2, yabPattern);
                                 else
@@ -2050,6 +2068,8 @@ void YabInterface::DrawEllipse(double x, double y, double r1, double r2, const c
                                         BBitmap *b = myView->GetBitmap();
                                         BView *bView = myView->GetBitmapView();
                                         b->Lock();
+                                //        bView->SetDrawingMode(B_OP_ALPHA);
+                              	//		bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                         if(drawStroking)
                                                 bView->StrokeEllipse(BPoint(x,y), r1, r2, yabPattern);
                                         else
@@ -2109,6 +2129,8 @@ void YabInterface::DrawCurve(double x1, double y1, double x2, double y2, double 
                         if(bview)
                         {
                                 b->Lock();
+                                   bview->SetDrawingMode(B_OP_ALPHA);
+                              	bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                 BPoint p[4];
                                 p[0].Set(x1,y1);
                                 p[1].Set(x2,y2);
@@ -2140,6 +2162,8 @@ void YabInterface::DrawCurve(double x1, double y1, double x2, double y2, double 
                                         BBitmap *b = myView->GetBitmap();
                                         BView *bView = myView->GetBitmapView();
                                         b->Lock();
+                                //         bView->SetDrawingMode(B_OP_ALPHA);
+                              //	bView->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
                                 	BPoint p[4];
                                 	p[0].Set(x1,y1);
                                 	p[1].Set(x2,y2);
@@ -2156,7 +2180,7 @@ void YabInterface::DrawCurve(double x1, double y1, double x2, double y2, double 
                                 		bView->FillBezier(p, yabPattern);
                                         bView->Sync();
                                         b->Unlock();
-
+										
 					myView->Draw(BRect(invx1,invy1,invx2,invy2));
                                         w->Unlock();
                                         return;
