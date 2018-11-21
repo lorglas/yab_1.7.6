@@ -1622,9 +1622,9 @@ void YabInterface::DrawText(BPoint coordinates, const char* text, const char* wi
                         if(bview)
                         {
                                 b->Lock();
-                                // bview->SetDrawingMode(B_OP_ALPHA);
-                              	//bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
-                               	bview->DrawString(text, coordinates);
+                                 bview->SetDrawingMode(B_OP_ALPHA);
+                              	bview->SetBlendingMode(B_PIXEL_ALPHA, B_ALPHA_COMPOSITE);
+                              	bview->DrawString(text, coordinates);
                                 bview->Sync();
                                 b->Unlock();
                                 return;
@@ -4859,7 +4859,7 @@ const char* YabInterface::TreeboxGet(const char* treebox, int pos)
 					if(t)
 					{
 						const char* txt = t->Text();
-						printf(txt);
+						//printf(txt);
 						w->Unlock();
 						return txt;
 					}
